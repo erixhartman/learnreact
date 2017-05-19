@@ -4,7 +4,11 @@ import Post from './App';
 
 var post = {
   postTitle: "Dinosaurs are awesome",
-  author: "Stealthy Steg",
+  authors: [
+    "Stealthy Steg",
+    "Steve Davidson",
+    "Dave Stevenson"
+  ],
   postBody: "body property",
   comments: [
     "But emails!",
@@ -16,7 +20,7 @@ var post = {
 ReactDOM.render(
   <Post
     name={post.postTitle}
-    author={post.author}
+    allAuthors={post.authors}
     content={post.postBody}
     comments={post.comments}
    />,
