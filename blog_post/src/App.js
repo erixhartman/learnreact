@@ -6,6 +6,19 @@ import Author from './Author.js';
 
 class Post extends Component {
 
+  constructor (props) {
+    super()
+    this.state = {
+      body: props.content
+    }
+  }
+  changeBody (e) {
+    let newBody = prompt("What should the new body be?")
+    this.setState({
+      body: newBody
+    })
+  }
+
   render() {
     let authors = [
       < Author author={this.props.allAuthors[0]}/>,
@@ -16,7 +29,8 @@ class Post extends Component {
       <div>
         <h1> Hi {this.props.name}</h1>
         {authors}
-        <p>{this.props.content}</p>
+        <p>{this.state.body}</p>
+        <button onClick={(e) => this.changeBody(e)}>Edit Body</button>
         <Comment body={this.props.comments[0]} />
       </div>
     )
